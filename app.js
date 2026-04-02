@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
       header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         padding: 20px 40px;
         background: #020617;
       }
@@ -31,10 +30,9 @@ app.get('/', (req, res) => {
 
       .cart {
         background: #38bdf8;
-        padding: 10px 15px;
+        padding: 10px;
         border-radius: 8px;
         color: black;
-        font-weight: bold;
       }
 
       .container {
@@ -50,88 +48,45 @@ app.get('/', (req, res) => {
         margin: 15px;
         padding: 20px;
         border-radius: 12px;
-        box-shadow: 0 0 15px rgba(56,189,248,0.3);
-        transition: 0.3s;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
-      }
-
-      .title {
-        font-size: 18px;
-        font-weight: bold;
-      }
-
-      .desc {
-        font-size: 14px;
-        margin: 10px 0;
-        opacity: 0.8;
       }
 
       button {
         width: 100%;
         padding: 10px;
+        background: #38bdf8;
         border: none;
         border-radius: 8px;
-        background: #38bdf8;
-        color: black;
         cursor: pointer;
-        font-weight: bold;
-      }
-
-      button:hover {
-        background: #0ea5e9;
-      }
-
-      footer {
-        text-align: center;
-        padding: 15px;
-        opacity: 0.6;
       }
     </style>
-
   </head>
 
   <body>
 
     <header>
       <h1>📚 Online Book Store</h1>
-      <div class="cart">🛒 Cart: <span id="cart-count">0</span></div>
+      <div class="cart">🛒 Cart: <span id="count">0</span></div>
     </header>
 
     <div class="container">
-
       <div class="card">
-        <div class="title">Clean Code</div>
-        <div class="desc">A handbook of software craftsmanship.</div>
-        <button onclick="addToCart()">Add to Cart</button>
+        <h3>Clean Code</h3>
+        <p>Software craftsmanship guide</p>
+        <button onclick="add()">Add</button>
       </div>
 
       <div class="card">
-        <div class="title">Atomic Habits</div>
-        <div class="desc">Build good habits effectively.</div>
-        <button onclick="addToCart()">Add to Cart</button>
+        <h3>Atomic Habits</h3>
+        <p>Build good habits</p>
+        <button onclick="add()">Add</button>
       </div>
-
-      <div class="card">
-        <div class="title">The Alchemist</div>
-        <div class="desc">A journey of dreams and destiny.</div>
-        <button onclick="addToCart()">Add to Cart</button>
-      </div>
-
     </div>
 
-    <footer>
-      © 2026 DevOps Kubernetes Project 🚀
-    </footer>
-
     <script>
-      let count = 0;
-
-      function addToCart() {
-        count++;
-        document.getElementById('cart-count').innerText = count;
+      let c = 0;
+      function add() {
+        c++;
+        document.getElementById("count").innerText = c;
       }
     </script>
 
