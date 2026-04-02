@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: online-book-store
-          image: akbaraliiii/online-book-store:v3
+          image: akbaraliiii/online-book-store:v4
           ports:
             - containerPort: 3000   # 🔥 MUST BE 3000
 
