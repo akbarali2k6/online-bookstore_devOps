@@ -13,13 +13,12 @@ spec:
         app: online-book-store
     spec:
       containers:
-      - name: online-book-store
-        image: akbaraliiii/online-book-store:latest
-        ports:
-        - containerPort: 3000
+        - name: online-book-store
+          image: akbaraliiii/online-book-store:latest
+          ports:
+            - containerPort: 3000   # 🔥 MUST BE 3000
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -29,6 +28,7 @@ spec:
   selector:
     app: online-book-store
   ports:
-  - port: 80
-    targetPort: 3000
-    nodePort: 30007
+    - protocol: TCP
+      port: 80
+      targetPort: 3000   # 🔥 MATCH THIS
+      nodePort: 30007
