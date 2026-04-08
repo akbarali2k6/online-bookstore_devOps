@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "yourdockerhubusername/online-book-store"
+        IMAGE_NAME = "akbaraliiii/online-book-store"
     }
 
     stages {
