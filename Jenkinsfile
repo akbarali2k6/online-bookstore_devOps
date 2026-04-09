@@ -7,9 +7,15 @@ pipeline {
 
     stages {
 
+        stage('Check Docker') {
+            steps {
+                sh '/usr/local/bin/docker --version'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME:latest .'
+                sh '/usr/local/bin/docker build -t $IMAGE_NAME:latest .'
             }
         }
 
@@ -21,8 +27,8 @@ pipeline {
                     passwordVariable: 'PASS'
                 )]) {
                     sh '''
-                    echo $PASS | docker login -u $USER --password-stdin
-                    docker push $IMAGE_NAME:latest
+                    echo $PASS | /usr/local/bin/docker login -u $USER --password-stdin
+                    /usr/local/bin/docker push $IMAGE_NAME:latest
                     '''
                 }
             }
